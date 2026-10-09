@@ -25,7 +25,10 @@
 <main>
 
 <section class="hero">
-  <h1>Cem Aksu</h1>
+  <div class="hero-id">
+    <img class="portrait" src="assets/img/cem-aksu.jpg" alt="Portrait of Cem Aksu" width="160" height="160">
+    <h1>Cem Aksu</h1>
+  </div>
   <p class="role">Electrical and electronics engineering student who writes firmware for STM32 and builds Python tools for investing.</p>
 
   <figure class="trace" aria-label="Timing diagram of a non-blocking LED driver: 1500 ms on, 200 ms off">
@@ -87,7 +90,6 @@
     <p>Simulates a long-term dividend portfolio on Borsa Istanbul from 2006 to 2026 with annual rebalancing and monthly contributions. Each year the engine looks only at trailing data, so there is no look-ahead bias. A Markov-state model drops a stock when it skips a dividend and re-admits it after a trust period; weights come from 10-year CAGR. Results are reported in USD with XIRR, Sharpe, Sortino and maximum drawdown.</p>
     <div class="gallery">
       <figure><img src="assets/img/bist-quant-1.png" alt="Equity curve of the dividend strategy in USD compared with SPY, BIST100 and invested capital, 2016 to 2026" loading="lazy"><figcaption>Equity curve vs. SPY, BIST100 and invested capital (USD)</figcaption></figure>
-      <figure><img src="assets/img/bist-quant-2.png" alt="BIST Quant metrics: XIRR, Sharpe and drawdown" loading="lazy"><figcaption>Performance metrics</figcaption></figure>
     </div>
   </article>
 
@@ -100,7 +102,6 @@
     <p>Pulls Turkish mutual fund data from TEFAS, converts returns to USD and ranks funds by CAGR. A planner estimates the capital needed for financial independence at different withdrawal rates and inflation assumptions, and compares a conservative and an aggressive scenario.</p>
     <div class="gallery">
       <figure><img src="assets/img/tefas-quant-1.png" alt="TEFAS Quant dashboard comparing a 4% safe withdrawal scenario with a 14% real-return scenario, with passive income crossing the monthly expense line" loading="lazy"><figcaption>FIRE scenarios: safe vs. real-return withdrawal</figcaption></figure>
-      <figure><video controls preload="metadata"><source src="assets/video/tefas-quant-demo.mp4" type="video/mp4">Your browser does not play MP4 video.</video><figcaption>Demo walkthrough</figcaption></figure>
     </div>
   </article>
 
@@ -121,7 +122,7 @@
     <p class="stack">C · STM32 HAL · STM32CubeIDE</p>
     <p>Built with two fellow interns during my internship. A small driver module where each LED is an object with its own on and off period. A state machine compares the current tick with the last switch time, so several LEDs blink at different rates from one main loop without <code>HAL_Delay()</code>.</p>
     <div class="gallery">
-      <figure><img src="assets/img/stm32-board.jpg" alt="STM32 Discovery board with three LEDs wired to GPIO pins" loading="lazy"><figcaption>Test setup on the Discovery board</figcaption></figure>
+      <figure class="narrow"><img src="assets/img/stm32-board.jpg" alt="STM32H573I-DK Discovery kit with its touchscreen, Ethernet port and user buttons" loading="lazy"><figcaption>STM32H573I-DK Discovery kit the driver runs on</figcaption></figure>
     </div>
   </article>
 </section>
@@ -135,6 +136,15 @@
     <dt>Python libraries</dt><dd>pandas, NumPy, Plotly, Streamlit, PyInstaller</dd>
     <dt>Languages</dt><dd>Turkish (native), English (advanced)</dd>
   </dl>
+</section>
+
+<section id="hardware" class="block">
+  <h2>Hardware</h2>
+  <p>Development boards I keep on my desk for firmware work and experiments.</p>
+  <div class="gallery">
+    <figure><img src="assets/img/stm32f407-discovery.jpg" alt="STM32F407G-DISC1 Discovery board with ST-LINK debugger and pin headers" loading="lazy"><figcaption>STM32F407G-DISC1, the board I used most during my internship</figcaption></figure>
+    <figure><img src="assets/img/raspberry-pi-4.jpg" alt="Raspberry Pi 4 Model B single-board computer" loading="lazy"><figcaption>Raspberry Pi 4 Model B</figcaption></figure>
+  </div>
 </section>
 
 <section id="certifications" class="block">
