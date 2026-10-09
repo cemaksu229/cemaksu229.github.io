@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cem Aksu | Embedded Systems</title>
+<meta name="description" content="Cem Aksu, Electrical and Electronics Engineering student at Yaşar University. STM32 firmware, embedded C and Python tools for quantitative finance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Public+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="mark" href="#">Cem Aksu</a>
+  <nav aria-label="Sections">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <h1>Cem Aksu</h1>
+  <p class="role">Electrical and electronics engineering student who writes firmware for STM32 and builds Python tools for investing.</p>
+
+  <figure class="trace" aria-label="Timing diagram of a non-blocking LED driver: 1500 ms on, 200 ms off">
+    <svg viewBox="0 0 800 120" preserveAspectRatio="none" role="img">
+      <line class="grid" x1="0" y1="96" x2="800" y2="96"/>
+      <path class="wave" pathLength="1" d="M0 96 H20 V24 H260 V96 H292 V24 H532 V96 H564 V24 H800"/>
+    </svg>
+    <figcaption><code>led_green</code>: 1500 ms on, 200 ms off, scheduled from SysTick without blocking delays</figcaption>
+  </figure>
+
+  <div class="actions">
+    <a class="btn primary" href="assets/docs/Cem_Aksu_CV.pdf" download>Download CV (PDF)</a>
+    <a class="btn" href="https://github.com/cemaksu">GitHub</a>
+  </div>
+</section>
+
+<section id="about" class="block">
+  <h2>About</h2>
+  <p>I am a 4th-year Electrical and Electronics Engineering student at Yaşar University in İzmir. My internship focused on STM32 microcontrollers: configuring peripherals in STM32CubeMX, writing C with the HAL and debugging on the board. Outside of engineering I build backtesting and portfolio tools in Python, because I like questions that can be answered with data.</p>
+</section>
+
+<section id="education" class="block">
+  <h2>Education</h2>
+  <div class="entry">
+    <div class="entry-head">
+      <h3>Yaşar University</h3>
+      <span class="when">İzmir, Türkiye</span>
+    </div>
+    <p class="sub">B.Sc. in Electrical and Electronics Engineering, 4th-year student</p>
+  </div>
+</section>
+
+<section id="experience" class="block">
+  <h2>Experience</h2>
+  <div class="entry">
+    <div class="entry-head">
+      <h3>ENKO Control Systems Inc.</h3>
+      <span class="when">Summer 2026</span>
+    </div>
+    <p class="sub">R&amp;D Intern, Embedded Systems · İzmir</p>
+    <ul>
+      <li>Configured STM32F407 and STM32F429 microcontrollers in STM32CubeMX: clock tree, GPIO, SysTick and NVIC.</li>
+      <li>Developed and debugged firmware in C with the STM32 HAL in STM32CubeIDE, flashed with STM32CubeProgrammer.</li>
+      <li>Wrote a reusable non-blocking LED driver as a state machine timed with <code>HAL_GetTick()</code>.</li>
+      <li>Implemented a 1 ms time-sliced task loop on SysTick to alternate tasks without an RTOS.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="projects" class="block">
+  <h2>Projects</h2>
+
+  <article class="project">
+    <div class="entry-head">
+      <h3>BIST Quant: dividend-growth backtesting engine</h3>
+      <span class="when">2026</span>
+    </div>
+    <p class="stack">Python · pandas · Streamlit · Plotly · yfinance · PyInstaller</p>
+    <p>Simulates a long-term dividend portfolio on Borsa Istanbul from 2006 to 2026 with annual rebalancing and monthly contributions. Each year the engine looks only at trailing data, so there is no look-ahead bias. A Markov-state model drops a stock when it skips a dividend and re-admits it after a trust period; weights come from 10-year CAGR. Results are reported in USD with XIRR, Sharpe, Sortino and maximum drawdown.</p>
+    <div class="gallery">
+      <figure><img src="assets/img/bist-quant-1.png" alt="BIST Quant dashboard with portfolio value chart" loading="lazy"><figcaption>Portfolio value over 20 years</figcaption></figure>
+      <figure><img src="assets/img/bist-quant-2.png" alt="BIST Quant metrics: XIRR, Sharpe and drawdown" loading="lazy"><figcaption>Performance metrics</figcaption></figure>
+    </div>
+  </article>
+
+  <article class="project">
+    <div class="entry-head">
+      <h3>TEFAS Quant: fund analysis and financial independence terminal</h3>
+      <span class="when">2026</span>
+    </div>
+    <p class="stack">Python · Streamlit · pandas · Plotly · pyTEFAS</p>
+    <p>Pulls Turkish mutual fund data from TEFAS, converts returns to USD and ranks funds by CAGR. A planner estimates the capital needed for financial independence at different withdrawal rates and inflation assumptions, and compares a conservative and an aggressive scenario.</p>
+    <div class="gallery">
+      <figure><img src="assets/img/tefas-quant-1.png" alt="TEFAS Quant fund ranking table" loading="lazy"><figcaption>Fund ranking by USD CAGR</figcaption></figure>
+      <figure><video controls preload="metadata"><source src="assets/video/tefas-quant-demo.mp4" type="video/mp4">Your browser does not play MP4 video.</video><figcaption>Demo walkthrough</figcaption></figure>
+    </div>
+  </article>
+
+  <article class="project">
+    <div class="entry-head">
+      <h3>Asynchronous algorithmic trading bot</h3>
+      <span class="when">2026</span>
+    </div>
+    <p class="stack">Python · asyncio · pandas · NumPy</p>
+    <p>An event loop split into data, strategy, risk and execution modules. Signals combine EMA, RSI and ADX and are recalculated on each new bar. Position size scales with realized volatility, and a trailing stop is checked on every tick.</p>
+  </article>
+
+  <article class="project">
+    <div class="entry-head">
+      <h3>STM32 non-blocking LED driver</h3>
+      <span class="when">2026</span>
+    </div>
+    <p class="stack">C · STM32 HAL · STM32CubeIDE</p>
+    <p>A small driver module where each LED is an object with its own on and off period. A state machine compares the current tick with the last switch time, so several LEDs blink at different rates from one main loop without <code>HAL_Delay()</code>.</p>
+    <div class="gallery">
+      <figure><img src="assets/img/stm32-board.jpg" alt="STM32 Discovery board with three LEDs wired to GPIO pins" loading="lazy"><figcaption>Test setup on the Discovery board</figcaption></figure>
+    </div>
+  </article>
+</section>
+
+<section id="skills" class="block">
+  <h2>Skills</h2>
+  <dl class="skills">
+    <dt>Programming</dt><dd>C (embedded), Python</dd>
+    <dt>Embedded</dt><dd>STM32 F4 series, STM32 HAL, STM32CubeIDE, STM32CubeMX, STM32CubeProgrammer</dd>
+    <dt>Simulation and design</dt><dd>MATLAB, Proteus, LTspice, Logisim</dd>
+    <dt>Python libraries</dt><dd>pandas, NumPy, Plotly, Streamlit, PyInstaller</dd>
+    <dt>Languages</dt><dd>Turkish (native), English (advanced)</dd>
+  </dl>
+</section>
+
+<section id="certifications" class="block">
+  <h2>Certifications</h2>
+  <ul class="plain">
+    <li><a href="assets/docs/Signal_Processing_Onramp_Certificate.pdf">Signal Processing Onramp, MathWorks</a> <span class="when">November 2025</span></li>
+  </ul>
+</section>
+
+<section id="contact" class="block">
+  <h2>Contact</h2>
+  <p>The fastest way to reach me is email: <a href="mailto:aksucem283@gmail.com">aksucem283@gmail.com</a></p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p>Built with HTML and CSS, hosted on GitHub Pages.</p>
+</footer>
+
+<script>
+  // Show a labelled frame for any image or video that has not been added yet
+  document.querySelectorAll('.gallery img').forEach(function (img) {
+    img.addEventListener('error', function () {
+      var f = img.closest('figure');
+      f.classList.add('missing');
+      f.setAttribute('data-file', img.getAttribute('src'));
+    });
+  });
+  function markVideo(v) {
+    var f = v.closest('figure');
+    f.classList.add('missing');
+    f.setAttribute('data-file', v.querySelector('source').getAttribute('src'));
+  }
+  document.querySelectorAll('.gallery video').forEach(function (v) {
+    v.querySelector('source').addEventListener('error', function () { markVideo(v); });
+    setTimeout(function () { if (v.networkState === 3) markVideo(v); }, 1500);
+  });
+</script>
+</body>
+</html>
