@@ -38,7 +38,7 @@
 
   <div class="actions">
     <a class="btn primary" href="assets/docs/Cem_Aksu_CV.pdf" download>Download CV (PDF)</a>
-    <a class="btn" href="https://github.com/cemaksu">GitHub</a>
+    <a class="btn" href="https://github.com/cemaksu229">GitHub</a>
   </div>
 </section>
 
@@ -63,13 +63,13 @@
   <div class="entry">
     <div class="entry-head">
       <h3>ENKO Control Systems Inc.</h3>
-      <span class="when">Summer 2026</span>
+      <span class="when">Jul 2026 – Aug 2026</span>
     </div>
     <p class="sub">R&amp;D Intern, Embedded Systems · İzmir</p>
     <ul>
       <li>Configured STM32F407 and STM32F429 microcontrollers in STM32CubeMX: clock tree, GPIO, SysTick and NVIC.</li>
       <li>Developed and debugged firmware in C with the STM32 HAL in STM32CubeIDE, flashed with STM32CubeProgrammer.</li>
-      <li>Wrote a reusable non-blocking LED driver as a state machine timed with <code>HAL_GetTick()</code>.</li>
+      <li>Co-developed, in a team of three interns, a reusable non-blocking LED driver as a state machine timed with <code>HAL_GetTick()</code>.</li>
       <li>Implemented a 1 ms time-sliced task loop on SysTick to alternate tasks without an RTOS.</li>
     </ul>
   </div>
@@ -99,7 +99,7 @@
     <p class="stack">Python · Streamlit · pandas · Plotly · pyTEFAS</p>
     <p>Pulls Turkish mutual fund data from TEFAS, converts returns to USD and ranks funds by CAGR. A planner estimates the capital needed for financial independence at different withdrawal rates and inflation assumptions, and compares a conservative and an aggressive scenario.</p>
     <div class="gallery">
-      <figure><img src="assets/img/tefas-quant-1.png" alt="TEFAS Quant fund ranking table" loading="lazy"><figcaption>Fund ranking by USD CAGR</figcaption></figure>
+      <figure><img src="assets/img/tefas-quant-1.png" alt="TEFAS Quant dashboard comparing a 4% safe withdrawal scenario with a 14% real-return scenario, with passive income crossing the monthly expense line" loading="lazy"><figcaption>FIRE scenarios: safe vs. real-return withdrawal</figcaption></figure>
       <figure><video controls preload="metadata"><source src="assets/video/tefas-quant-demo.mp4" type="video/mp4">Your browser does not play MP4 video.</video><figcaption>Demo walkthrough</figcaption></figure>
     </div>
   </article>
@@ -115,11 +115,11 @@
 
   <article class="project">
     <div class="entry-head">
-      <h3>STM32 non-blocking LED driver</h3>
+      <h3>STM32 non-blocking LED driver (team of three)</h3>
       <span class="when">2026</span>
     </div>
     <p class="stack">C · STM32 HAL · STM32CubeIDE</p>
-    <p>A small driver module where each LED is an object with its own on and off period. A state machine compares the current tick with the last switch time, so several LEDs blink at different rates from one main loop without <code>HAL_Delay()</code>.</p>
+    <p>Built with two fellow interns during my internship. A small driver module where each LED is an object with its own on and off period. A state machine compares the current tick with the last switch time, so several LEDs blink at different rates from one main loop without <code>HAL_Delay()</code>.</p>
     <div class="gallery">
       <figure><img src="assets/img/stm32-board.jpg" alt="STM32 Discovery board with three LEDs wired to GPIO pins" loading="lazy"><figcaption>Test setup on the Discovery board</figcaption></figure>
     </div>
@@ -163,6 +163,10 @@
       f.classList.add('missing');
       f.setAttribute('data-file', img.getAttribute('src'));
     });
+  });
+  // Open screenshots full size in a new tab
+  document.querySelectorAll('.gallery img').forEach(function (img) {
+    img.addEventListener('click', function () { window.open(img.src, '_blank'); });
   });
   function markVideo(v) {
     var f = v.closest('figure');

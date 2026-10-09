@@ -111,6 +111,7 @@ li { margin: .3rem 0; }
   display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover;
   background: var(--frame); border: 1px solid var(--rule); border-radius: 4px;
 }
+.gallery img { aspect-ratio: auto; height: auto; object-fit: contain; }
 .gallery figcaption { margin-top: .4rem; font-size: .85rem; color: var(--muted); }
 /* Shown until the real file is uploaded */
 .gallery figure.missing img, .gallery figure.missing video { display: none; }
